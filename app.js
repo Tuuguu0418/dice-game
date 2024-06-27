@@ -26,10 +26,10 @@ function initGame(){
 
     document.querySelector('.player-0-panel').classList.remove('winner');
     document.querySelector('.player-1-panel').classList.remove('winner');
-    document.querySelector('.player-0-panel').classList.add('active');
-    document.querySelector('.player-1-panel').classList.add('active');
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
 
-    document.querySelector('.player-0-panel').classList.add('winner');
+    document.querySelector('.player-0-panel').classList.add('active');
     diceDom.style.display = "none";
 }
 
@@ -48,7 +48,7 @@ document.querySelector(".btn-roll").addEventListener('click', function(){
             switchToNextPlayer();
         }
     }else{
-                
+        alert("Game over so you have to restart the game");
     }
 });
 
@@ -64,9 +64,9 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
             document.getElementById('name-'+activePlayer).textContent = 'Winner!!!';
             document.querySelector('.player-'+activePlayer+'-panel').classList.add('winner');
             document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
-    }else{
-        switchToNextPlayer();
-    }
+        }else{
+            switchToNextPlayer();
+        }
     }else{
         alert("Game over so you have to restart the game");
     }
@@ -85,4 +85,3 @@ function switchToNextPlayer(){
 
 // New game button
 document.querySelector('.btn-new').addEventListener('click', initGame);
-
